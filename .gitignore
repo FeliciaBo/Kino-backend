@@ -134,6 +134,16 @@ dist
 !.yarn/sdks
 !.yarn/versions
 
-# Vite logs files
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
+#sass 
+*.sass.map
+*.css.map
+*.scssc
+*.sass-cache
+*.css
+
+# Do not iggnore main.css
+!main.css
+
+
+
+
