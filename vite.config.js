@@ -5,4 +5,14 @@ export default defineConfig({
   plugins: [
     FullReload(['./**/*.html'])
   ],
+
+  //updated to work with node and port 5080
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5080',
+        changeOrigin: true
+      }
+    }
+  }
 })
