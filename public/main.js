@@ -85,28 +85,20 @@ async function loadToplistCarousel() {
   } 
 }
 */
-const lastSeen = localStorage.getItem('lastSeen') || 0
-
-fetch(`/api/updates?since=${lastSeen}`)
-.then(res => res.json())
-.then(data => {
-  if (data.updated) {
-   localStorgare.setItem('lastSeen', data.lastUpdated)
-  }
-})
-
 
 // 3. Kör laddning av HTML och vänta på att de blir klara
 await loadHeader();
 await loadFooter();
 await loadToplistCarousel();
 
-// 4. Slutligen, rendera posters (nu när containern garanterat finns)
+/* // 4. Slutligen, rendera posters (nu när containern garanterat finns)
 const topListContainer = document.querySelector(".movie__page__movies");
 console.log(store.allMovies);
 store.allMovies.forEach((movie) => {
   createPoster(movie, topListContainer);
-});
+}); */
+
+
 
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.querySelector('.nav-menu');
