@@ -1,4 +1,4 @@
-import { getGenreNames } from "../API/genreID";
+import { getGenreNames } from "../../src/API/genreID";
 
 const IMG_BASE = "https://image.tmdb.org/t/p/w780";
 

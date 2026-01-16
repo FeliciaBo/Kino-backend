@@ -1,5 +1,3 @@
-import "./sass/main.scss";
-
 //från tidigare film-API
 /*import {
   store,
@@ -84,21 +82,19 @@ async function loadToplistCarousel() {
     console.error("Kunde inte ladda karusellen:", err);
   } 
 }
-*/
 
-// 3. Kör laddning av HTML och vänta på att de blir klara
-await loadHeader();
-await loadFooter();
-await loadToplistCarousel();
-
-/* // 4. Slutligen, rendera posters (nu när containern garanterat finns)
+// 4. Slutligen, rendera posters (nu när containern garanterat finns)
 const topListContainer = document.querySelector(".movie__page__movies");
 console.log(store.allMovies);
 store.allMovies.forEach((movie) => {
   createPoster(movie, topListContainer);
 }); */
 
-
+document.addEventListener("DOMContentLoaded", async () => {
+loadHeader();
+loadFooter();
+loadToplistCarousel();
+});
 
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.querySelector('.nav-menu');
