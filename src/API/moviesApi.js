@@ -1,4 +1,4 @@
-import { TMDB_API_KEY } from "./apiKey";
+/* import { TMDB_API_KEY } from "./apiKey";
 
 export const store = {
   nowPlaying: [],
@@ -65,3 +65,4 @@ export const fetchClassics = async () => {
   const data = await response.json();
   addUniqueIdsToStore(data.results, "classics", 5);
 };
+*/

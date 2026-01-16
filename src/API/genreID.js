@@ -1,5 +1,5 @@
 // genreID.js
-import { fetchMovieGenres } from "./genresApi";
+/*import { fetchMovieGenres } from "./genresApi";
 
 let genreMap = {};
 
@@ -27,3 +27,4 @@ export function getGenreNames(genreIds, max = 3) {
     .slice(0, max)
     .join(", ");
 }
+*/

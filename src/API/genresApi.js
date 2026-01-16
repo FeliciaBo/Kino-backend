@@ -1,4 +1,5 @@
-import { TMDB_API_KEY } from "./apiKey";
+
+/* import { TMDB_API_KEY } from "./apiKey";
 const BASE_URL = "https://api.themoviedb.org/3";
 
 export async function fetchMovieGenres() {
@@ -13,3 +14,5 @@ export async function fetchMovieGenres() {
   const data = await res.json();
   return data.genres;
 }
+
+*/

@@ -1,5 +1,7 @@
 import "./sass/main.scss";
-import {
+
+//från tidigare film-API
+/*import {
   store,
   fetchNowPlaying,
   fetchToplist,
@@ -80,8 +82,19 @@ async function loadToplistCarousel() {
     initCarousel();
   } catch (err) {
     console.error("Kunde inte ladda karusellen:", err);
-  }
+  } 
 }
+*/
+const lastSeen = localStorage.getItem('lastSeen') || 0
+
+fetch(`/api/updates?since=${lastSeen}`)
+.then(res => res.json())
+.then(data => {
+  if (data.updated) {
+   localStorgare.setItem('lastSeen', data.lastUpdated)
+  }
+})
+
 
 // 3. Kör laddning av HTML och vänta på att de blir klara
 await loadHeader();
