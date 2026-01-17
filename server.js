@@ -8,6 +8,9 @@ const port = 5080
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
+// View engine = EJS 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -21,6 +24,11 @@ app.get('/api/updates', (req, res) => {
   })
 })
 
+app.get('/', (req, res) => {
+    res.render('index', { message: 'Hello, World!' });
+});
+
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Server running on port ${port}`)
 })
+
