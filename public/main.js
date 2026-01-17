@@ -90,11 +90,12 @@ store.allMovies.forEach((movie) => {
   createPoster(movie, topListContainer);
 }); */
 
+
 document.addEventListener("DOMContentLoaded", async () => {
-loadHeader();
-loadFooter();
-loadToplistCarousel();
+await loadToplistCarousel();
 });
+
+
 
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.querySelector('.nav-menu');
