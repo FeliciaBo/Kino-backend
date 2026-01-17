@@ -28,6 +28,9 @@ app.get('/', (req, res) => {
     res.render('index', { message: 'Hello, World!' });
 });
 
+app.get('/movies', (req, res) => {
+    res.render('movies');
+});
 
 
 app.listen(port, () => {
