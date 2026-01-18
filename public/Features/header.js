@@ -1,3 +1,6 @@
+//mobile and desktop navigation bar functionality
+
+// Mobile
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.querySelector('.nav-menu');
 const mobileIcons = document.querySelectorAll('.mobile-nav_item');
