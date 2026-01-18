@@ -1,4 +1,19 @@
+
+export const storeMovie = {
+        "title": [],
+        "imdbId": [],
+        "intro": [],
+        "image": {
+          "url": []
+        },
+        "createdAt": "2024-01-22T09:24:08.098Z",
+        "updatedAt": "2024-01-22T10:27:28.540Z",
+        "publishedAt": "2024-01-22T09:24:10.979Z"
+      };
+
+
 /* import { TMDB_API_KEY } from "./apiKey";
+
 
 export const store = {
   nowPlaying: [],
