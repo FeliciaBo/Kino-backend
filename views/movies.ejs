@@ -13,9 +13,10 @@
     
 <section class="movies-wrapper">
     <div class="movie__page__movies">
-
-    <article class="movie-poster">
-        <%movies.forEach(movie => { %>
+    
+    <%movies.forEach(movie => { %>
+    <div class="movie-poster">
+        
      <div class="movie-poster__image">
             
         <img src="<%= movie.attributes.image.url %>" 
@@ -30,17 +31,12 @@
             <!-- Movie details to fill out space, instead of genre -->
             <h2><%= movie.attributes.title %></h2>
             <h3> Added: <%= movie.attributes.publishedAt.slice(0, 10) %></h3>
-
-        </div>
-
-   </div>
+      </div>
       </div>
       
     <% }) %>
-</article>
+    </div>
 
-    
-  
 </section>
 
     <%- include('partials/footer') %>
