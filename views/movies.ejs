@@ -21,8 +21,15 @@
          alt="Movie Poster">
       </div>
  
-        <div class="movie-poster__info">
+        <div class="movie-info">
+            <button class="movie-info-icon" aria-label="More info">
+                <img src="img/info.png" alt="Information symbol">
+            </button>
+
+            <!-- Movie details to fill out space, instead of genre -->
             <h2><%= movies[0].attributes.title %></h2>
+            <h3> Added: <%= movies[0].attributes.publishedAt.slice(0, 10) %></h3>
+
         </div>
 
    </div>
