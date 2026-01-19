@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css"/>
-    <title>Filmer</title>
+    <title>Kino - Filmer</title>
 </head>
 <body>
     <%- include('partials/header') %>
     <h1>Alla filmer</h1>
     <a href="/">Tillbaka till hem </a>
 
-  <div class="header-container"></div>
+<div class="movies-wrapper">
 
-
-  <div class="movies-wrapper">
-    <div class="movie__page__movies"></div>
+    // Testing fetching movies from backend
+    <div class="movie__page__movies">
+    <h2><%= movies[0].attributes.title %></h2>
+      
+    </div>
   </div>
 
     <%- include('partials/footer') %>

@@ -15,22 +15,35 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')))
 
 //check when user used page last
-let lastUpdated = Date.now()
+/*let lastUpdated = Date.now()
 app.get('/api/updates', (req, res) => {
   const since = Number(req.query.since)
   res.json({
     updated: lastUpdated > (since || 0),
     lastUpdated
   })
-})
+}) */
 
 app.get('/', (req, res) => {
     res.render('index', { message: 'Hello, World!' });
 });
 
-app.get('/movies', (req, res) => {
-    res.render('movies');
+// Movies route from api
+app.get('/movies', async (req, res) => {
+  try {
+    const response = await fetch
+    ('https://plankton-app-xhkom.ondigitalocean.app/api/movies ');
+    const result = await response.json();
+  
+    res.render('movies', { 
+      movies: result.data });
+      
+  } catch (error) {
+    console.error('Error: Failed to fetch movies:', error);
+    res.status(500).send('Internal Server Error');
+  }
 });
+
 
 
 app.listen(port, () => {
