@@ -15,9 +15,10 @@
     <div class="movie__page__movies">
 
     <article class="movie-poster">
-
-         <div class="movie-poster__image">
-        <img src="<%= movies[0].attributes.image.url %>" 
+        <%movies.forEach(movie => { %>
+     <div class="movie-poster__image">
+            
+        <img src="<%= movie.attributes.image.url %>" 
          alt="Movie Poster">
       </div>
  
@@ -27,15 +28,18 @@
             </button>
 
             <!-- Movie details to fill out space, instead of genre -->
-            <h2><%= movies[0].attributes.title %></h2>
-            <h3> Added: <%= movies[0].attributes.publishedAt.slice(0, 10) %></h3>
+            <h2><%= movie.attributes.title %></h2>
+            <h3> Added: <%= movie.attributes.publishedAt.slice(0, 10) %></h3>
 
         </div>
 
    </div>
       </div>
       
-    </article>
+    <% }) %>
+</article>
+
+    
   
 </section>
 
