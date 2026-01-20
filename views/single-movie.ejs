@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css"/>
+    <title>Single Movie</title>
+</head>
+<body>
+ <%- include('partials/header') %>
+
+
+    <img src="<%= movie.attributes.image.url %>" alt="">
+   <h2><%= movie.attributes.title %></h2>
+    <p><%= movie.attributes.description %></p>
+
+
+
+    <script src="/main.js"></script>
+<%- include('partials/footer') %>
+</body>
+</html>

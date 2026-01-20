@@ -14,25 +14,17 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-//check when user used page last
-/*let lastUpdated = Date.now()
-app.get('/api/updates', (req, res) => {
-  const since = Number(req.query.since)
-  res.json({
-    updated: lastUpdated > (since || 0),
-    lastUpdated
-  })
-}) */
-
+// Routes - Index, Movies, Single Movie
 app.get('/', (req, res) => {
     res.render('index', { message: 'Hello, World!' });
 });
+
 
 // Movies route from api
 app.get('/movies', async (req, res) => {
   try {
     const response = await fetch
-    ('https://plankton-app-xhkom.ondigitalocean.app/api/movies ');
+    ('https://plankton-app-xhkom.ondigitalocean.app/api/movies');
     const result = await response.json();
   
     res.render('movies', { 
@@ -44,7 +36,19 @@ app.get('/movies', async (req, res) => {
   }
 });
 
+app.get('/movies/:id', async (req, res) => {
+  const {id} = req.params;
 
+  try {
+    const response = await fetch(`https://plankton-app-xhkom.ondigitalocean.app/api/movies/${id}`);
+    const result = await response.json();
+
+    res.render('single-movie', { movie: result.data });
+  } catch (error) {
+    console.error('Error: Failed to fetch movie:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)

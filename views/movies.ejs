@@ -57,9 +57,9 @@
     <div class="movie-poster">
         
      <div class="movie-poster__image">
-            
-        <img src="<%= movie.attributes.image.url %>" 
-         alt="Movie Poster">
+        <a href="/movies/<%= movie.id %>">
+        <img src="<%= movie.attributes.image.url %>" alt="Movie Poster">
+         </a>
       </div>
  
         <div class="movie-info">
@@ -79,6 +79,7 @@
 </section>
 
     <%- include('partials/footer') %>
+    <script src="/main.js"></script>
 
 </body>
 </html>
