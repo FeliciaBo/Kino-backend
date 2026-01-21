@@ -1167,26 +1167,39 @@ body {
 }
 .single-movie {
   display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.single-movie__text {
+  display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
+  text-align: left;
+  width:400px;
+  background-color: #0E131B;
 }
 .single-movie__img {
-  width: 300px;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
+  width: 400px;
+  height: 600px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .single-movie__title {
   font-family: "bold Open sans", sans-serif;
-  font-size: 2rem;
+  width: 100%;
+  font-size: 1.25rem;
+  padding: 0;
   color: #F5F7FA;
-  margin-bottom: 1rem;
+  text-align: left;
+  margin: 0;
 }
-.single-movie__description {
+.single-movie__intro {
   font-family: "regular Open sans", sans-serif;
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: #626C7B;
   line-height: 1.5;
-  max-width: 600px;
-  text-align: center;
 }/*# sourceMappingURL=main.css.map */
