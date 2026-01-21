@@ -9,12 +9,11 @@
 <body>
  <%- include('partials/header') %>
 
-
+<article class="single-movie"> 
     <img src="<%= movie.attributes.image.url %>" alt="">
-   <h2><%= movie.attributes.title %></h2>
-    <p><%= movie.attributes.description %></p>
-
-
+    <h2><%= movie.attributes.title %></h2>
+    <p><%= movie.attributes.intro %></p>
+</article>
 
     <script src="/main.js"></script>
 <%- include('partials/footer') %>
