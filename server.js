@@ -46,15 +46,7 @@ app.get('/movies/:id', async (req, res) => {
 
     const movie = result.data;
 
- movie.attributes.introHtml = marked.parse(`
-# Markdown testing
-
-**Bold text**
-
-- One
-- Two
-- Three
-`);
+    movie.attributes.introHtml = marked.parse(movie.attributes.intro || '');
     
     res.render('single-movie', { movie });
   } catch (error) {
