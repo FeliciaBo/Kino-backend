@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url'
 import { marked } from 'marked'
 
 const app = express()
-const port = 5080
+const port = 5080 //very important
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -46,9 +46,11 @@ app.get('/movies/:id', async (req, res) => {
 
     const movie = result.data;
 
+    // Convert to markdown 
     movie.attributes.introHtml = marked.parse(movie.attributes.intro || '');
     
     res.render('single-movie', { movie });
+
   } catch (error) {
     console.error('Error: Failed to fetch movie:', error);
     res.status(500).send('Internal Server Error');
@@ -56,6 +58,7 @@ app.get('/movies/:id', async (req, res) => {
   }
 });
 
+// Start server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)
 })
