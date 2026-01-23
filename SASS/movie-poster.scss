@@ -25,7 +25,24 @@ body {
   max-width: 220px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  position: relative;
 }
+
+
+.movie-poster.new::before {
+    content: 'NEW';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #DD6031;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+ 
 
 .movie-poster:hover {
   transform: translateY(-4px);
@@ -64,6 +81,7 @@ body {
   font-weight: 700;
   font-size: 1rem;
   line-height: 1.25;
+  padding-bottom: 0.25rem;
   color: #f5f7fa;
   white-space: nowrap;
   overflow: hidden;

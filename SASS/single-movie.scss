@@ -18,15 +18,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 1rem;
+        padding: 1rem 2rem;
         text-align: left;
         width: 400px;
-        background-color: #626C7B;
+        background-color: $card-color;
 
         @include desktop {
     height: 600px;
     width: auto;
-    flex:1;
+    flex: 1;
     padding: 4rem;
   }
     }
@@ -35,6 +35,7 @@
         width: 400px;
         height: 600px;
         object-fit: cover;
+        margin: 0;
 
          @include desktop {
    flex-shrink: 0;
@@ -44,10 +45,14 @@
     &__title {
         width: 100%;
         font-family: $font-header;
-        font-size: 1.25rem;
+        font-size: 1.75rem;
         color: $primary-text-color;
-        padding: 0;
+        margin: 0;
+        padding-top: 1rem;
 
+        @include desktop {
+            padding-top: 4rem;
+        }
     }
 
     &__intro {
@@ -55,5 +60,6 @@
         font-size: 0.875rem;
         color: $secondary-text-color;
         line-height: 1.5;
+        margin-top: 0;
     }
 }

@@ -54,7 +54,7 @@
     <div class="movie__page__movies">
     
     <%movies.forEach(movie => { %>
-    <div class="movie-poster">
+    <div class="movie-poster" data-published-at="<%= movie.attributes.publishedAt %>">
         
      <div class="movie-poster__image">
         <a href="/movies/<%= movie.id %>">
@@ -69,7 +69,7 @@
 
             <!-- Movie details to fill out space, instead of genre -->
             <h2><%= movie.attributes.title %></h2>
-            <h3> Added: <%= movie.attributes.publishedAt.slice(0, 10) %></h3>
+            <h3> Uppdaterad: <%= movie.attributes.updatedAt.slice(0, 10) %></h3>
       </div>
       </div>
       
