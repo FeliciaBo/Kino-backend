@@ -1243,4 +1243,17 @@ body {
   color: #626C7B;
   line-height: 1.5;
   margin-top: 0;
+}
+
+.error-page {
+  text-align: center;
+  margin: 100px;
+}
+.error-page h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+.error-page p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
 }/*# sourceMappingURL=main.css.map */

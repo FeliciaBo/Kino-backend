@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/main.css">
     <title>500 Internal Server Error</title>
 </head>
 <body>
-    <h1>500 Internal Server Error</h1>
-    <p>An error occurred while processing your request.</p>
+    <%- include('../partials/header') %>
+    
+    <section class="error-page">
+        <h1>500 Internal Server Error</h1>
+        <p>An error occurred while processing your request.</p>
+    </section>
+
+    <%- include('../partials/footer') %>
 </body>
 </html>
