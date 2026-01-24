@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Routes - Index, Movies, Single Movie
 app.get('/', (req, res) => {
-    res.render('index', { message: 'Hello, World!' });
+    res.render('index');
 });
 
 
@@ -32,7 +32,7 @@ app.get('/movies', async (req, res) => {
       
   } catch (error) {
     console.error('Failed to fetch movies:', error);
-    res.status(500).send('Internal Server Error');
+    res.status(500).render('errors/500');
   }
 });
 
@@ -46,7 +46,7 @@ app.get('/movies/:id', async (req, res) => {
 
     //if data is not found/empty
     if (!result.data) {
-      return res.status(404).send('Movie Not Found');
+      return res.status(404).render('errors/404');
     }
 
     const movie = result.data;
@@ -58,8 +58,13 @@ app.get('/movies/:id', async (req, res) => {
 
   } catch (error) {
     console.error('Failed to fetch movie:', error);
-    res.status(500).send('Internal Server Error');
+    res.status(500).render('errors/500');
   }
+});
+
+//find all 404 errors
+app.use((req, res) => {
+  res.status(404).render('errors/404');
 });
 
 // Start server
