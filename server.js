@@ -28,11 +28,10 @@ app.get('/movies', async (req, res) => {
     ('https://plankton-app-xhkom.ondigitalocean.app/api/movies');
     const result = await response.json();
   
-    res.render('movies', { 
-      movies: result.data });
+    res.render('movies', { movies: result.data });
       
   } catch (error) {
-    console.error('Error: Failed to fetch movies:', error);
+    console.error('Failed to fetch movies:', error);
     res.status(500).send('Internal Server Error');
   }
 });
@@ -44,6 +43,12 @@ app.get('/movies/:id', async (req, res) => {
     const response = await fetch(`https://plankton-app-xhkom.ondigitalocean.app/api/movies/${id}`);
     const result = await response.json();
 
+
+    //if data is not found/empty
+    if (!result.data) {
+      return res.status(404).send('Movie Not Found');
+    }
+
     const movie = result.data;
 
     // Convert to markdown 
@@ -52,9 +57,8 @@ app.get('/movies/:id', async (req, res) => {
     res.render('single-movie', { movie });
 
   } catch (error) {
-    console.error('Error: Failed to fetch movie:', error);
+    console.error('Failed to fetch movie:', error);
     res.status(500).send('Internal Server Error');
-    console.log(error);
   }
 });
 
