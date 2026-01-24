@@ -20,12 +20,17 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-
 // Movies route from api
 app.get('/movies', async (req, res) => {
   try {
     const response = await fetch
-    ('https://plankton-app-xhkom.ondigitalocean.app/api/movies');
+    ('https://plankton-app-xhkom.ondigitalocean.app/api/moviesTEST');
+
+    //add own error handling
+    if (!response.ok) {
+      return res.status(404).render('errors/404');
+    } 
+
     const result = await response.json();
   
     res.render('movies', { movies: result.data });
@@ -41,6 +46,11 @@ app.get('/movies/:id', async (req, res) => {
 
   try {
     const response = await fetch(`https://plankton-app-xhkom.ondigitalocean.app/api/movies/${id}`);
+    
+    //add own error handling
+    if (!response.ok) {
+      return res.status(404).render('errors/404');
+    } 
     const result = await response.json();
 
 
