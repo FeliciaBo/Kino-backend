@@ -19,8 +19,6 @@ describe("Movie pages", () => {
       const id = movie.id;
       const title = movie.attributes?.title;
 
-      if (!title) continue; 
-
       const singleRes = await fetch(
         `${api}/${id}`
       );
@@ -45,7 +43,7 @@ describe("Movie pages", () => {
   });
 
   test("Non-existing movie ID returns 404 page", async () => {
-    const res = await request(app).get("/movies/9999");
+    const res = await request(app).get("/movies/9999"); //movie 9999 does not exist
 
     expect(res.status).toBe(404);
     expect(res.text).toContain("The page you are looking for does not exist");
