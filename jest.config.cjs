@@ -1,5 +1,3 @@
-
 module.exports = {
-  testEnvironment: "node",
-  transform: {},
+  testEnvironment: "node"
 };

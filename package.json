@@ -108,13 +108,14 @@
     "vary": "^1.1.2"
   },
   "scripts": {
-    "test": "jest", 
-    "start": "node start.js" 
+    "test": "NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "start": "node start.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "esm": "^3.2.25",
     "jest": "^30.2.0",
     "supertest": "^7.2.2"
   }
