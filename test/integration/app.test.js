@@ -15,12 +15,12 @@ describe("Movie pages", () => {
 
     const validMovies = [];
 
-    // 2. Filter out movies that actually exist as single pages
+    // Filter out movies that actually exist as single pages
     for (const movie of movies) {
       const id = movie.id;
       const title = movie.attributes?.title;
 
-      if (!title) continue;
+      if (!title) continue; 
 
       const singleRes = await fetch(
         `https://plankton-app-xhkom.ondigitalocean.app/api/movies/${id}`

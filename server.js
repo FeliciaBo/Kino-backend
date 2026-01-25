@@ -15,7 +15,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-// Routes - Index, Movies, Single Movie
+// Routes - Index
 app.get('/', (req, res) => {
     res.render('index');
 });
