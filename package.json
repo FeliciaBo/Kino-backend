@@ -108,7 +108,8 @@
     "vary": "^1.1.2"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest", 
+    "start": "node start.js" 
   },
   "keywords": [],
   "author": "",
