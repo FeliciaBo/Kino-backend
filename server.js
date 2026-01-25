@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 app.get('/movies', async (req, res) => {
   try {
     const response = await fetch
-    ('https://plankton-app-xhkom.ondigitalocean.app/api/moviesTEST');
+    ('https://plankton-app-xhkom.ondigitalocean.app/api/movies');
 
     //add own error handling
     if (!response.ok) {
@@ -76,11 +76,6 @@ app.get('/movies/:id', async (req, res) => {
 app.use((req, res) => {
   res.status(404).render('errors/404');
 });
-
-// Start server
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`)
-})
 
 //export for testing
 export default app;
