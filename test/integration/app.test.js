@@ -4,31 +4,32 @@ import app from "../../server.js";
 import { api } from "../../server.js";
 
 describe("Movie pages", () => {
-
   test("Each valid single movie page renders the correct title", async () => {
 
     //Fetch movie list from API
     const listRes = await fetch(api);
     const listData = await listRes.json();
     const movies = listData.data;
-
+    
+    //list of testable movies
     const validMovies = [];
 
-    // Filter out movies that actually exist as single pages
+    // Loop through movies, 
+    // filter out the movies that actually exist
     for (const movie of movies) {
+
+      //More readable movie id and title
       const id = movie.id;
       const title = movie.attributes?.title;
 
       const singleRes = await fetch(
         `${api}/${id}`
-      );
-
-      if (!singleRes.ok) continue;
-
+       );
+      
       validMovies.push({ id, title });
     }
 
-    //Test each valid movie page rendered by OUR server
+    //Test each valid movie page is rendered by my server :)
     for (const movie of validMovies) {
       const page = await request(app).get(`/movies/${movie.id}`);
 
