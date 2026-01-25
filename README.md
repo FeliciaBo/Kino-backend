@@ -1,6 +1,6 @@
 # Kino-hemsida
-SSR Movie Website
-Runs on port 5080
+SSR Movie Website.
+Runs on port 5080.
 
 ## Stack includes:
 - Node.js
