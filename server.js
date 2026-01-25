@@ -2,12 +2,16 @@ import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { marked } from 'marked'
+import fetch from 'node-fetch'
 
 const app = express()
 const port = 5080 //very important
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+
+//API variable
+const api = 'https://plankton-app-xhkom.ondigitalocean.app/api/movies'
 
 // View engine = EJS 
 app.set('view engine', 'ejs');
@@ -23,8 +27,7 @@ app.get('/', (req, res) => {
 // Movies route from api
 app.get('/movies', async (req, res) => {
   try {
-    const response = await fetch
-    ('https://plankton-app-xhkom.ondigitalocean.app/api/movies');
+    const response = await fetch(api);
 
     //add own error handling
     if (!response.ok) {
@@ -45,7 +48,7 @@ app.get('/movies/:id', async (req, res) => {
   const {id} = req.params;
 
   try {
-    const response = await fetch(`https://plankton-app-xhkom.ondigitalocean.app/api/movies/${id}`);
+    const response = await fetch(`${api}/${id}`);
     
     //add own error handling
     if (!response.ok) {
@@ -79,3 +82,4 @@ app.use((req, res) => {
 
 //export for testing
 export default app;
+export { api };

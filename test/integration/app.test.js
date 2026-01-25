@@ -1,15 +1,14 @@
 import request from "supertest";
 import fetch from "node-fetch";
 import app from "../../server.js";
+import { api } from "../../server.js";
 
 describe("Movie pages", () => {
 
   test("Each valid single movie page renders the correct title", async () => {
 
     //Fetch movie list from API
-    const listRes = await fetch(
-      "https://plankton-app-xhkom.ondigitalocean.app/api/movies"
-    );
+    const listRes = await fetch(api);
     const listData = await listRes.json();
     const movies = listData.data;
 
@@ -23,7 +22,7 @@ describe("Movie pages", () => {
       if (!title) continue; 
 
       const singleRes = await fetch(
-        `https://plankton-app-xhkom.ondigitalocean.app/api/movies/${id}`
+        `${api}/${id}`
       );
 
       if (!singleRes.ok) continue;
